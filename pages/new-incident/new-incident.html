@@ -1,0 +1,95 @@
+<!--
+  Generated template for the NewEvent page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>NewIncident</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form #f="ngForm" (ngSubmit)= "onAddItem(f)">
+    <ion-list>
+      <ion-item >
+        <ion-label floating>Name incident</ion-label>
+        <ion-input type="text" name="IncidentName"  ngModel ></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-label floating="">Location</ion-label>
+        <ion-input type="text" name="IncidentLocation" ngModel ></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-label floating="">info</ion-label>
+        <ion-textarea  name="Info" ngModel  ></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-grid>
+      <ion-row>
+    <!--   <ion-col>
+         <button
+            ion-button
+            block
+            outline
+            type="button"
+            icon-left
+            (click)="onLocate()">
+            <ion-icon name="locate" ></ion-icon>
+            Locate Incident
+
+         </button>
+       </ion-col>-->
+       <ion-col>
+         <button
+         ion-button
+         block
+         outline
+         type="button"
+         icon-left
+         (click)="onOpenMap()">
+
+         <ion-icon name="map" ></ion-icon>
+         Select on Map
+         </button>
+          <button
+          ion-button
+          block
+          outline
+          type="button"
+          icon-left>Incident Begin
+            <ion-datetime displayFormat="DD-MM-YYYY HH:mm"  name="Time"
+            ngModel></ion-datetime>
+          </button>
+          <ion-row>
+            <ion-col>
+            <sebm-google-map
+              [latitude]="location.lat"
+              [longitude]="location.lng"
+              [zoom]="16">
+            <sebm-google-map-marker
+              [latitude]="location.lat"
+              [longitude]="location.lng">
+            </sebm-google-map-marker>
+           </sebm-google-map>
+          </ion-col>
+        </ion-row>
+        </ion-col>
+     </ion-row>
+    </ion-grid>
+
+
+
+
+    <button
+       ion-button type="submit" block>
+        create
+       </button>
+  </form>
+
+
+</ion-content>
